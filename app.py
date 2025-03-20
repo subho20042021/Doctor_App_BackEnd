@@ -18,8 +18,7 @@ def hello_world():  # put application's code here
 
 @app.route('/data', methods = ['POST'])
 def getDepartmentData():
-
-    if(request.method == 'POST') :
+    if request.method == 'POST':
         db_ref = db.collection('Department').stream()
         return jsonify(list(map(lambda doc: doc.to_dict(), db_ref)))
     else:
