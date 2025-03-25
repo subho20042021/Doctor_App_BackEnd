@@ -21,6 +21,7 @@ def getDepartmentData():
     if request.method == 'POST':
         db_ref = db.collection('Department').stream()
         return jsonify(list(map(lambda doc: doc.to_dict(), db_ref))[2])
+
     else:
         return None
 
